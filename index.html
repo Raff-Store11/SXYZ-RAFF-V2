@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ddos attack whatsapp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Mengubah menjadi flex-start */
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Style untuk modal login */
+        .modal {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Pastikan modal di atas semua elemen lain */
+        }
+
+        .modal-content {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #f00;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 10px;
+            background-color: #f00;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-content p {
+            font-size: 0.8em;
+            color: #f00;
+            margin-top: 10px;
+        }
+
+        /* Style untuk container utama (disembunyikan awalnya) */
+        .container {
+            display: none;
+            width: 80%;
+            max-width: 700px;
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Style untuk menu bar (disembunyikan awalnya) */
+        .menu-bar {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        .menu-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-icon {
+            font-size: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .menu-title {
+            font-size: 16px;
+        }
+
+        .menu-right {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        button {
+            width: 50%;
+            padding: 10px;
+            background-color: #f00;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style untuk progress bar */
+        #proses {
+            width: 100%;
+            background-color: #333;
+            margin-top: 20px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #progressBar {
+            height: 20px;
+            background-color: #f00;
+            width: 0%;
+            transition: width 0.1s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        #progressText {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 12px;
+            z-index: 2;
+        }
+
+        /* Style untuk modal pop-up */
+        .modal-attack {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content-attack {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #f00;
+        }
+
+        .modal-content-attack button {
+            margin: 5px;
+            width: auto;
+        }
+
+        /* Style untuk teks peringatan */
+        .warning-text {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Modal Login -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <h2>LOGIN</h2>
+            <h2>ATTACK WHAT'S APP</h2>
+            <input type="text" id="username" placeholder="USERNAME">
+            <input type="password" id="password" placeholder="PASSWORD">
+            <button onclick="login()">LOGIN</button>
+            <p id="loginError" style="color: red; display: none;">USERNAME TIDAK VALID</p>
+        </div>
+    </div>
+
+    <!-- Menu Bar -->
+    <div class="menu-bar" id="menuBar">
+        <div class="menu-left">
+            <span class="menu-icon">&#9776;</span>
+            <span class="menu-title">SXYZ RAFF V2</span>
+        </div>
+        <div class="menu-right">
+            <span>&#8942;</span>
+        </div>
+    </div>
+
+    <!-- Container Utama -->
+    <div class="container" id="mainContainer">
+        <img src="sxyz.png" width="120px" height="20">
+        <h1>DDOS ATTACK</h1>
+        <p>TEAM ATTACKER WHAT'S APP IS BACK.</p>
+
+        <input type="text" id="targetUrl" placeholder="INPUT TARGET NUMBER">
+
+        <select id="metodeAttack">
+            <option value="" disabled selected>METODE ATTACK</option>
+            <option value="bannedWA">Banned WhatsApp</option>
+            <option value="spamPairing">Spam Pairing</option>
+        </select>
+
+        <button onclick="startAttack()">Start Attack</button>
+
+        <!-- Progress Bar -->
+        <div id="proses">
+            <div id="progressBar"></div>
+            <div id="progressText">0%</div>
+        </div>
+
+        <div class="modal-attack" id="attackModal">
+            <div class="modal-content-attack">
+                <p id="modalText">ATTACK DONE</p>
+                <p id="targetNumber">TARGET NUMBER: </p>
+                <p>©MR.ALB3RB HACKERS</p>
+                <button onclick="closeModal()">Tutup</button>
+            </div>
+        </div>
+
+        <p class="warning-text">What's App attacker, don't misuse it because it is illegal. Protect your privacy. We will not hesitate to eradicate people who misuse this tool.
+        We are here and we are behind the scenes, don't expect to get away with it if you make a mist"In essence, use this tool wisely and do not distribute it indiscriminately. That is all, thank you.</p>
+    </div>
+
+    <script>
+        // Pastikan modal login ditampilkan saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loginModal').style.display = 'flex';
+            document.getElementById('menuBar').style.display = 'none';
+            document.getElementById('mainContainer').style.display = 'none';
+        });
+
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var loginError = document.getElementById('loginError');
+            var loginModal = document.getElementById('loginModal');
+            var menuBar = document.getElementById('menuBar');
+            var mainContainer = document.getElementById('mainContainer');
+
+            // Validasi login
+            if (username === 'SXYZ RAFF V2' && password === 'SXYZ RAFF V2') {
+                // Sembunyikan modal login
+                loginModal.style.display = 'none';
+                // Tampilkan menu bar
+                menuBar.style.display = 'flex';
+                // Tampilkan container utama
+                mainContainer.style.display = 'flex';
+
+                // Setel ukuran default untuk container utama
+                mainContainer.style.width = '80%';
+                mainContainer.style.maxWidth = '700px';
+            } else {
+                loginError.style.display = 'block'; // Tampilkan pesan error jika login gagal
+            }
+        }
+
+        function startAttack() {
+            var target = document.getElementById('targetUrl').value;
+            var metode = document.getElementById('metodeAttack').value;
+            var prosesDiv = document.getElementById('proses');
+            var progressBar = document.getElementById('progressBar');
+            var progressText = document.getElementById('progressText');
+            var progress = 0;
+
+            var interval = setInterval(function() {
+                progress += 1;
+                progressBar.style.width = progress + '%';
+                progressText.innerText = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    showModal(target);
+                }
+            }, 100);
+        }
+
+        function showModal(target) {
+            document.getElementById('targetNumber').innerText = 'TARGET NUMBER: ' + target;
+            document.getElementById('attackModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('attackModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
